@@ -1,13 +1,40 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Profile from "../components/Profile.astro";
+import Section from '../components/Section.astro';
+import Subsection from '../components/Subsection.astro';
+import Grid from '../components/Grid.astro';
 import Card from '../components/Card.astro';
 ---
 
 <Layout title="Hello, World!">
 	<main class="flex flex-col md:flex-row">
-		<div class="">
+		<div class="fixed">
 			<Profile></Profile>
+		</div>
+		<div class="scroll">
+			<Section id="about" title='About Me'>
+				<p>
+					Hello, World! I’m a Senior Fullstack Engineer who has been exploring the design 
+					and architecture of software systems of all kinds for the last 8 years. 
+					Through teamwork and collaboration I’ve utilized my skills to help deliver 
+					dozens of products and services including digital trading platforms, 
+					financial systems, API and devops automation, ecommerce integrations, 
+					and feature rich websites.
+				</p>
+				<Subsection title='Tech Stack'>
+					<div class="card">
+						<p><b>Languages</b>: Typescript, Javascript, Rust, Ruby, Go, C++</p>
+						<p><b>Frontend</b>:  React, Svelte, Vue.js, Angular, Web Components, Rails, Shopify Liquid</p>
+						<p><b>Backend</b>: Unix, REST, PostrgreSQL, GraphQL, Redis, Node.js, Nest.js, Next.js, AWS (Lambda, EC2, S3), GCP, Azure, Cloudflare, Docker, PM2, Headless CMS</p>
+					</div>
+				</Subsection>
+				<Subsection title='Skills'>
+				</Subsection>
+			</Section>
+			<Section id="work" title="Work"></Section>
+			<Section id="projects" title="Projects"></Section>
+			<Section id="education" title="Education"></Section>
 		</div>
 	</main>
 </Layout>

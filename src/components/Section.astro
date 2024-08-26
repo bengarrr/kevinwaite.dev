@@ -1,21 +1,21 @@
 ---
 interface Props {
+    id: string;
     title: string;
-    content: string;
 }
 
-const { title, content } = Astro.props;
+const { id, title } = Astro.props;
 ---
 <section class="section">
     <div class="section-anchor">
-        <a href={"#" + title}>{title}</a>
+        <a href={"#" + id}>{title}</a>
     </div>
     <div class="section-header">
         <h2 class="section-title"></h2>
     </div>
     <div class="section-body">
         <div class="section-content">
-            {content}
+            <slot></slot>
         </div>
         {Astro.slots.has("subsection") && (
             <div class="section-subsection">
