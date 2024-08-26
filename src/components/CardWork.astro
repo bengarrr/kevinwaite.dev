@@ -1,0 +1,25 @@
+---
+interface Props {
+    title: string;
+    location: string;
+    date: string;
+    details: Array<string>;
+}
+
+const { title, location, date, details } = Astro.props;
+---
+
+<div class="work-card">
+    <div class="work-card--header">
+        <div class="work-card--title">{title}</div>
+        <div class="work-card--location">{location}</div>
+        <div class="work-card--date">{date}</div>
+    </div>
+    <div class="work-card--details">
+        <ul>
+            {details.map(detail => (
+                <li>{detail}</li>
+            ))}
+        </ul>
+    </div>
+</div>

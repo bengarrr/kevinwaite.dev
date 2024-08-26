@@ -1,0 +1,26 @@
+---
+interface Props {
+    title: string;
+    content: string;
+}
+
+const { title, content } = Astro.props;
+---
+<section class="section">
+    <div class="section-anchor">
+        <a href={"#" + title}>{title}</a>
+    </div>
+    <div class="section-header">
+        <h2 class="section-title"></h2>
+    </div>
+    <div class="section-body">
+        <div class="section-content">
+            {content}
+        </div>
+        {Astro.slots.has("subsection") && (
+            <div class="section-subsection">
+                <slot name="subsection"></slot>
+            </div>
+        )}
+    </div>
+</section>
