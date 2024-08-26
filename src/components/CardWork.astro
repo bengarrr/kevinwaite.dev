@@ -3,10 +3,9 @@ interface Props {
     title: string;
     location: string;
     date: string;
-    details: Array<string>;
 }
 
-const { title, location, date, details } = Astro.props;
+const { title, location, date } = Astro.props;
 ---
 
 <div class="work-card">
@@ -17,9 +16,7 @@ const { title, location, date, details } = Astro.props;
     </div>
     <div class="work-card--details">
         <ul>
-            {details.map(detail => (
-                <li>{detail}</li>
-            ))}
+            <slot></slot>
         </ul>
     </div>
 </div>

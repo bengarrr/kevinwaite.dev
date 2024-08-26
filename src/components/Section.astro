@@ -17,9 +17,9 @@ const { id, title } = Astro.props;
         <div class="section-content">
             <slot></slot>
         </div>
-        {Astro.slots.has("subsection") && (
-            <div class="section-subsection">
-                <slot name="subsection"></slot>
+        {Astro.slots.has("scroll") && (
+            <div class="section-scrolling">
+                <slot name="scroll"></slot>
             </div>
         )}
     </div>

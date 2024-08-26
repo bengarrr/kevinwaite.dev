@@ -4,6 +4,9 @@ import Profile from "../components/Profile.astro";
 import Section from '../components/Section.astro';
 import Subsection from '../components/Subsection.astro';
 import Grid from '../components/Grid.astro';
+import GridCard from '../components/GridCard.astro';
+import CardWork from '../components/CardWork.astro';
+import CardProject from '../components/CardProject.astro';
 import Card from '../components/Card.astro';
 ---
 
@@ -30,9 +33,39 @@ import Card from '../components/Card.astro';
 					</div>
 				</Subsection>
 				<Subsection title='Skills'>
+					<Grid cols={2}>
+						<GridCard>Web Development</GridCard>
+						<GridCard>API Design/Automation</GridCard>
+						<GridCard>Mobile/Native Apps</GridCard>
+						<GridCard>System Design</GridCard>
+					</Grid>
 				</Subsection>
 			</Section>
-			<Section id="work" title="Work"></Section>
+			<Section id="work" title="Work">
+				<div slot="scroll">
+					<CardWork title='Sr. Software Engineer' location='Secret LLC - Las Vegas, NV' date='Feb 2022 - July 2024'>
+						<li>Led design on frontend for a digital trading platform (Svelte/Typescript).</li>
+						<li>Collaborated on backend for the trading platform (Rust/Go).</li>
+						<li>Implemented low latency aggregation system  ingesting data from various currency exchange APIs.</li>
+						<li>Streamlined deployment and integration processes promoting use of: GithubCI/Cloudflare/Docker/PM2/Vite.</li>
+					</CardWork>
+					<CardWork title='Sr. Software Developer' location='Cola Studio - Costa Mesa, CA' date='Sept 2019 - Feb 2022'>
+						<li>Built proprietary instant ACH system that managed thousands of wholesale transactions (Rust/Go).</li>
+						<li>Optimized on-premise database to CRM systems increasing multiple client’s sales funnel efficiency.</li>
+						<li>Led design for high volume custom API integrations.</li>
+						<li>Utilizing reactive frameworks lead design on highly scalable bespoke Shopify themes (React/Vue/Liquid).</li>
+					</CardWork>
+					<CardWork title='Software Engineer II' location='Washington Mutual - Irvine, CA' date='Dec 2018 - Sept 2019'>
+						<li>Responsible for the implementation of a robust set of system components in the quote and lead system.</li>
+						<li>Automated the email notification service for DevOps Engineers when REST APIs went down, decreasing response times by 80%.</li>
+					</CardWork>
+					<CardWork title='Lead Developer' location=" Suavecito Pomade - Santa Ana, CA" date='Mar 2016 - Oct 2018'>
+						<li>Oversaw implementation of a set of frontend and backend services augmenting wholesale operations that drastically increased efficiency over existing platform integrations.</li>
+						<li>Led design of retail and wholesale checkout experiences with custom Stripe/Plaid integrations allowing faster ACH payments and significantly cheaper card processing.</li>
+						<li>Collaborated across all departments ensuring optimal performance of technical applications while improving collaboration and communication.</li>
+					</CardWork>
+				</div>
+			</Section>
 			<Section id="projects" title="Projects"></Section>
 			<Section id="education" title="Education"></Section>
 		</div>
