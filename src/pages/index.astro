@@ -7,7 +7,8 @@ import Grid from '../components/Grid.astro';
 import GridCard from '../components/GridCard.astro';
 import CardWork from '../components/CardWork.astro';
 import CardProject from '../components/CardProject.astro';
-import Card from '../components/Card.astro';
+import Card from '../components/CardEducation.astro';
+import CardEducation from '../components/CardEducation.astro';
 ---
 
 <Layout title="Hello, World!">
@@ -66,8 +67,23 @@ import Card from '../components/Card.astro';
 					</CardWork>
 				</div>
 			</Section>
-			<Section id="projects" title="Projects"></Section>
-			<Section id="education" title="Education"></Section>
+			<Section id="projects" title="Projects">
+				<CardProject title='Frequency - A low-latency price aggregator and data scraper' tags="Rust, Typescript, Wasm, Redis, Kafka, BullMQ, PostgreSQL" link="github">
+					<li></li>
+				</CardProject>
+				<CardProject title='Shopify++ - Extending the shopify plus admin panel' tags="Javascript, PWA, Chrome Manifest v2, Shopify Liquid" link="github">
+					<li></li>
+				</CardProject>
+				<CardProject title='Gol-Wasm - Hashlife implmented in Rust and Wasm' tags="Rust, Typescript, Wasm, wasm-bindgen" link="github">
+					<li></li>
+				</CardProject>
+				<CardProject title='Augmented Reality - UCSD Immervise Visualization Labratory' tags="Java, Monogame, AR/VR, Android, Mobile" link="ivl.net">
+					<li></li>
+				</CardProject>
+			</Section>
+			<Section id="education" title="Education">
+				<CardEducation title=''></CardEducation>
+			</Section>
 		</div>
 	</main>
 </Layout>

@@ -1,18 +1,19 @@
 ---
 interface Props {
     title: string;
-    location: string;
-    date: string;
+    tags: string;
+    date?: string;
+    link?: string;
 }
 
-const { title, location, date } = Astro.props;
+const { title, tags, date } = Astro.props;
 ---
 
 <div class="project-card">
     <div class="project-card--header">
         <div class="project-card--title">{title}</div>
-        <div class="project-card--tags">{location}</div>
-        { date.length > 0 ? <div class="project-card--date">{date}</div> : null }
+        <div class="project-card--tags">{tags}</div>
+        { date ? <div class="project-card--date">{date}</div> : null }
     </div>
     <div class="project-card--details">
         <ul>
