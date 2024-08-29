@@ -6,21 +6,69 @@ interface Props {
 
 const { id, title } = Astro.props;
 ---
-<section class="section">
+<section class="section card">
     <div class="section-anchor">
         <a href={"#" + id}>{title}</a>
     </div>
     <div class="section-header">
-        <h2 class="section-title"></h2>
+        <h1 class="section-title">{title}</h1>
     </div>
     <div class="section-body">
-        <div class="section-content">
+        <div class="section-content max-w-[900px]">
             <slot></slot>
         </div>
+        {Astro.slots.has("subsection") && (
+            <div class="section-subsection">
+                <slot name="subsection"></slot>
+            </div>
+        )}
         {Astro.slots.has("scroll") && (
-            <div class="section-scrolling">
+            <div class="section-scrolling flex flex-row overflow-scroll gap-[20px]">
                 <slot name="scroll"></slot>
             </div>
         )}
     </div>
 </section>
+
+<style>
+    .section {
+        @apply relative mb-[30px];
+    }
+    .section:last-of-type {
+        @apply mb-0;
+    }
+    .section-anchor {
+        @apply absolute right-0 mt-[-40px] rounded-bl-[20px] border-0 overflow-hidden;
+    }
+    .section-anchor a {
+        @apply block py-[15px] px-[30px] bg-zinc-700 font-bold text-zinc-500 hover:text-zinc-300;
+    }
+
+    .section h1 {
+        @apply pb-[20px] mb-[20px] text-zinc-300;
+        position: relative;
+    }
+    .section h1:after{
+        @apply bg-indigo-500 primary:bg-indigo-500 secondary:bg-mantis-500 tertiary:bg-lavender-500 h-[4px] w-[40px] absolute bottom-0 left-0;
+        content: "";
+    }
+
+    .section h2 {
+        @apply text-zinc-300;
+    }
+
+    .section-body>div {
+        @apply mb-[20px];
+    }
+
+    .section-body>div:last-child {
+        @apply mb-0;
+    }
+
+    :global(.section-subsection>div) {
+        @apply mb-[20px];
+    }
+    :global(.section-subsection>:last-child) {
+        @apply mb-0;
+    }
+</style>

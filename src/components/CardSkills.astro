@@ -1,0 +1,31 @@
+---
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props
+---
+
+<div class="skills-card flex flex-row items-start">
+    <div class="icon icon--skills mr-[10px]">
+        <slot name="icon"></slot>
+    </div>
+    <div class="skills-card--body">
+        <div class="skills-card--title">
+            {title}
+        </div>
+        <div class="skills-card--content">
+            <slot name="content"></slot>
+        </div>
+    </div>
+</div>
+
+<style>
+    .skills-card .icon {
+        @apply fill-zinc-300;
+    }
+
+    .skills-card--title {
+        @apply text-indigo-500 primary:text-indigo-500 secondary:text-mantis-500 tertiary:text-lavender-500 font-bold;
+    }
+</style>

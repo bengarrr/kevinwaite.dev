@@ -33,8 +33,9 @@ const { title } = Astro.props;
 		);
 	}
 	html {
+		@apply bg-zinc-950 text-zinc-300;
 		font-family: system-ui, sans-serif;
-		background: #13151a;
+		/* background: #13151a; */
 		background-size: 224px;
 	}
 	code {
@@ -48,4 +49,34 @@ const { title } = Astro.props;
 			Courier New,
 			monospace;
 	}
+	
+	h1 {
+		@apply text-4xl font-black;
+	}
+
+	h2 {
+		@apply text-2xl font-black;
+	}
+
+	.card {
+		@apply border-[3px] border-zinc-800 rounded-[20px] p-[40px] bg-zinc-900 overflow-hidden;
+	}
+	
+	.card .card {
+		@apply bg-zinc-800 bg-opacity-40;
+	}
 </style>
+
+<script src="https://cdn.jsdelivr.net/npm/jdenticon@3.3.0/dist/jdenticon.min.js" async
+        integrity="sha384-LfouGM03m83ArVtne1JPk926e3SGD0Tz8XHtW2OKGsgeBU/UfR0Fa8eX+UlwSSAZ" crossorigin="anonymous">
+</script>
+
+<script>
+	for(let el of document.querySelectorAll("#socialLinks>.social-link>a")) {
+		let e = el as HTMLElement;
+		el.addEventListener("mouseover", event => {
+			jdenticon.update("#jdenticon", e.dataset.jdenticon);
+			document.body.className = e.dataset.accent
+		});
+	}
+</script>

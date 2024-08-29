@@ -20,3 +20,32 @@ const { title, location, date } = Astro.props;
         </ul>
     </div>
 </div>
+
+<style>
+    .work-card {
+        @apply min-w-[450px];
+    }
+
+    .work-card--header {
+        @apply mb-[40px];
+    }
+
+    .work-card--title {
+        @apply font-bold text-3xl mb-[10px];
+    }
+    .work-card--location {
+        @apply font-bold text-lg;
+    }
+
+    .work-card--date {
+        @apply text-xs;
+    }
+
+    .work-card--details {
+        @apply text-sm;
+    }
+
+    :global(.work-card--details ul>li) {
+        @apply mb-5;
+	}
+</style>

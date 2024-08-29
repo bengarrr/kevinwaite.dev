@@ -2,8 +2,11 @@
 interface Props {
     cols: number;
 }
+
+const { cols } = Astro.props;
+const grid_template = `grid-cols-${cols}`
 ---
 
-<div class="grid">
+<div class={"grid " + grid_template + " gap-[10px]"}>
     <slot></slot>
 </div>
