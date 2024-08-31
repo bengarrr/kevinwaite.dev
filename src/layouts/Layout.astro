@@ -12,6 +12,7 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="/atropos.min.css">
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
@@ -59,11 +60,24 @@ const { title } = Astro.props;
 	}
 
 	.card {
-		@apply border-[3px] border-zinc-800 rounded-[20px] p-[40px] bg-zinc-900 overflow-hidden;
+		@apply border-[3px] border-zinc-800 rounded-[20px] p-5 md:p-[40px] bg-zinc-900 overflow-hidden;
 	}
 	
 	.card .card {
 		@apply bg-zinc-800 bg-opacity-40;
+	}
+
+	a.link {
+		@apply text-indigo-500 primary:text-indigo-500 secondary:text-mantis-500 tertiary:text-lavender-500 hover:text-indigo-700 hover:primary:text-indigo-700 hover:secondary:text-mantis-700 hover:tertiary:text-lavender-700
+	}
+
+	#profile {
+		@apply max-h-[1000px];
+		transition: all 500ms ease-out;
+	}
+
+	#profile.collapsed {
+		@apply max-h-[150px] md:max-h-none;
 	}
 </style>
 
@@ -79,4 +93,33 @@ const { title } = Astro.props;
 			document.body.className = e.dataset.accent
 		});
 	}
+</script>
+
+<script>
+	const profileEl = document.getElementById("profile") as HTMLElement;
+	let isAnimating = false;
+
+	document.addEventListener("scroll", event => {
+		const currScroll = window.scrollY;
+		const isCollapsed = profileEl.classList.contains("collapsed");
+
+		if(currScroll > 20 && !isCollapsed && !isAnimating) {
+			isAnimating = true;
+			profileEl.classList.add("collapsed");
+			
+			profileEl.addEventListener("transitionend", event => {
+				console.log("finished animating")
+				isAnimating = false;
+			})
+		}
+		if(currScroll === 0 && isCollapsed && !isAnimating) {
+			isAnimating = true;
+			profileEl.classList.remove("collapsed");
+
+			profileEl.addEventListener("transitionend", event => {
+				console.log("finished animating")
+				isAnimating = false;
+			})
+		}
+	})
 </script>

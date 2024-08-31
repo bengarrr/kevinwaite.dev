@@ -4,9 +4,10 @@ interface Props {
 }
 
 const { cols } = Astro.props;
-const grid_template = `grid-cols-${cols}`
+const grid_template = `md:grid-cols-${cols}`;
 ---
 
-<div class={"grid " + grid_template + " gap-[10px]"}>
+<div class:list={["grid", grid_template, "gap-[10px]"]}>
     <slot></slot>
 </div>
+<div class="md:grid-cols-2 hidden"></div>

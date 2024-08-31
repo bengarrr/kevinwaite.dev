@@ -7,7 +7,7 @@ interface Props {
 const { id, title } = Astro.props;
 ---
 <section class="section card">
-    <div class="section-anchor">
+    <div class="section-anchor hidden md:block">
         <a href={"#" + id}>{title}</a>
     </div>
     <div class="section-header">

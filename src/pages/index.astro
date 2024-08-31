@@ -12,8 +12,8 @@ import CardSkills from '../components/CardSkills.astro';
 ---
 
 <Layout title="Hello, World! I'm Kevin">
-	<main class="flex flex-col md:flex-row m-[40px] gap-[40px]">
-		<aside class="sticky max-h-[calc(100lvh-80px)] top-[40px]">
+	<main class="flex flex-col md:flex-row m-5 md:m-[40px] gap-[40px]">
+		<aside id="profile" class="sticky h-[calc(100lvh-40px)] md:h-[calc(100lvh-80px)] top-[20px] md:top-[40px] z-10">
 			<Profile jdenticon='github.com/bengarrr'></Profile>
 		</aside>
 		<div class="overflow-x-hidden relative">
@@ -28,9 +28,9 @@ import CardSkills from '../components/CardSkills.astro';
 				</p>
 				<Subsection slot="subsection" title='Tech Stack'>
 					<div class="card">
-						<p><b>Languages</b>: Typescript, Javascript, Rust, Ruby, Go, Java, C++</p>
-						<p><b>Frontend</b>:  React, Svelte, Vue.js, Angular, Next.js, Web Components, Flutter, Shopify Liquid</p>
-						<p><b>Backend</b>: Unix, REST, PostrgreSQL, GraphQL, Redis, Node.js, Nest.js, Rails, AWS (Lambda/EC2/S3), GCP, Azure, Cloudflare, Docker, PM2, Headless CMS</p>
+						<p><b class="text-indigo-500 primary:text-indigo-500 secondary:text-mantis-500 tertiary:text-lavender-500">Languages</b>: Typescript, Javascript, Rust, Ruby, Go, Java, C++</p>
+						<p><b class="text-indigo-500 primary:text-indigo-500 secondary:text-mantis-500 tertiary:text-lavender-500">Frontend</b>:  React, Svelte, Vue.js, Angular, Next.js, Web Components, Flutter, Shopify Liquid</p>
+						<p><b class="text-indigo-500 primary:text-indigo-500 secondary:text-mantis-500 tertiary:text-lavender-500">Backend</b>: Unix, REST, PostrgreSQL, GraphQL, Redis, Node.js, Nest.js, Rails, AWS (Lambda/EC2/S3), GCP, Azure, Cloudflare, Docker, PM2, Headless CMS</p>
 					</div>
 				</Subsection>
 				<Subsection slot="subsection" title='Skills'>
@@ -69,7 +69,7 @@ import CardSkills from '../components/CardSkills.astro';
 							<CardSkills title="System Design">
 								<svg slot="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="4em" height="4em" x="0px" y="0px" viewBox="0 0 64 80" style="enable-background:new 0 0 64 64;" xml:space="preserve"><g><rect x="22" y="5" width="2" height="2"/><rect x="26" y="5" width="2" height="2"/><rect x="30" y="5" width="2" height="2"/><rect x="22" y="13" width="4" height="2"/><rect x="28" y="13" width="14" height="2"/><rect x="22" y="17" width="20" height="2"/><rect x="22" y="21" width="20" height="2"/><rect x="13" y="41" width="2" height="2"/><rect x="5" y="41" width="2" height="2"/><rect x="9" y="41" width="2" height="2"/><rect x="5" y="49" width="4" height="2"/><rect x="11" y="49" width="14" height="2"/><rect x="5" y="53" width="20" height="2"/><rect x="5" y="57" width="20" height="2"/><path d="M60,37h-8V16c0-1.654-1.346-3-3-3h-3V4c0-1.654-1.346-3-3-3H21c-1.654,0-3,1.346-3,3v9h-3c-1.654,0-3,1.346-3,3v21H4   c-1.654,0-3,1.346-3,3v20c0,1.654,1.346,3,3,3h22c1.654,0,3-1.346,3-3v-9h6v9c0,1.654,1.346,3,3,3h22c1.654,0,3-1.346,3-3V40   C63,38.346,61.654,37,60,37z M61,40v5H37v-5c0-0.551,0.449-1,1-1h22C60.551,39,61,39.449,61,40z M20,11h24v13c0,0.551-0.449,1-1,1   H21c-0.551,0-1-0.449-1-1V11z M21,3h22c0.551,0,1,0.449,1,1v5H20V4C20,3.449,20.449,3,21,3z M4,39h22c0.551,0,1,0.449,1,1v5H3v-5   C3,39.449,3.449,39,4,39z M26,61H4c-0.551,0-1-0.449-1-1V47h24v13C27,60.551,26.551,61,26,61z M29,49v-9c0-1.654-1.346-3-3-3H14V16   c0-0.551,0.449-1,1-1h3v9c0,1.654,1.346,3,3,3h22c1.654,0,3-1.346,3-3v-9h3c0.551,0,1,0.449,1,1v21H38c-1.654,0-3,1.346-3,3v9H29z    M60,61H38c-0.551,0-1-0.449-1-1V47h24v13C61,60.551,60.551,61,60,61z"/><rect x="43" y="41" width="2" height="2"/><rect x="39" y="41" width="2" height="2"/><rect x="47" y="41" width="2" height="2"/><rect x="39" y="49" width="4" height="2"/><rect x="45" y="49" width="14" height="2"/><rect x="39" y="53" width="20" height="2"/><rect x="39" y="57" width="20" height="2"/></g></svg>
 								<div slot="content">
-									Designing reliable and distrbuted low cost solutions for the entire stack.
+									Designing reliable and distrbuted cost-saving solutions for the entire stack.
 								</div>
 							</CardSkills>
 						</GridCard>
@@ -100,17 +100,30 @@ import CardSkills from '../components/CardSkills.astro';
 				</CardWork>
 			</Section>
 			<Section id="projects" title="Projects">
-				<CardProject slot="scroll" title='Frequency - A low-latency price aggregator and data scraper' tags="Rust, Typescript, Wasm, Redis, Kafka, BullMQ, PostgreSQL" link="github">
-					<li></li>
+				<CardProject slot="scroll" title='Frequency' description='A low-latency price aggregator and data scraper' tags="Rust, Typescript, WASM, Redis, Kafka, BullMQ, PostgreSQL">
+					<li>A low latency and high availability price aggregator that injests data from dozens of currency exchange platforms</li>
+					<li>Uses Google Puppeteer in headless mode to scrape data from currency websites avoiding API rate limits</li>
+					<li>BullMQ with a Redis backend to queue fetches and insertions of data into backend</li>
+					<li>A simple Node.js/express API handles queries for the latest aggregated prices for each curreny, or a set of currencies</li>
+					<li>Kafka to push out price updates in realtime to any client listeners</li>
 				</CardProject>
-				<CardProject slot="scroll" title='Shopify++ - Extending the shopify plus admin panel' tags="Javascript, PWA, Chrome Manifest v2, Shopify Liquid" link="github">
-					<li></li>
+				<CardProject slot="scroll" title='Gol-Wasm' description='Hashlife implmented in Rust and Wasm' tags="Rust, Typescript, WASM, WebGl, wasm-bindgen, js-sys" link="https://github.com/bengarrr/gol-wasm">
+					<li>Hashlife version of Conway's Game of Life implmented in Rust and Wasm</li>
+					<li>The goal was to implement an extremely performant version of Conway's classic but in Rust and using WASM and WebGL to power the rendering</li>
+					<li>Wasm-bindgen to Webgl for display and rendering</li>
+					<li>Js-sys to handle UI and DOM manipulation all in Rust</li>
+					<li>One day will expand to other alternate optimized game loops structures, maybe one day reaching the heights of <b><a class="link" href="https://www.youtube.com/watch?v=xP5-iIeKXE8" target="_blank">Life in Life</a></b></li>
 				</CardProject>
-				<CardProject slot="scroll" title='Gol-Wasm - Hashlife implmented in Rust and Wasm' tags="Rust, Typescript, Wasm, wasm-bindgen" link="github">
-					<li></li>
+				<CardProject slot="scroll" title='Shopify++' description='Extending the shopify plus admin panel' tags="Javascript, PWA, Chrome Manifest v2, Shopify Liquid">
+					<li>A chrome manifest v2 extension that injects functionality directly into the shopify admin panel on pages like orders and customers</li>
+					<li>Shopify plugins dont have the ability to modifying existing admin pages, this gets around that limitation</li>
+					<li>This also takes advantage of the existing Admin interfeces css styles so UX is presevered and more intuitive</li>
+					<li>A simple requestAnimationFrame listener allows us to know when its safe to inject onto the page, preventing FOUC and jankiness</li>
 				</CardProject>
-				<CardProject slot="scroll" title='Augmented Reality - UCSD Immervise Visualization Labratory' tags="Java, Monogame, AR/VR, Android, Mobile" link="ivl.net">
-					<li></li>
+				<CardProject slot="scroll" title='Project Altered Reality' description='UCSD Immervise Visualization Labratory' tags="Java, Monogame, OpenGL, AR/VR, Android, Mobile" link="http://ivl.calit2.net/wiki/index.php/Altered_Reality">
+					<li>This was a student project at UCSD</li>
+					<li>Designed as an augmented reality mobile game</li>
+					<li>The goal was to use phone accelerometer data to control a Player's camera in a virtual enviroment, while using gps and accelerometer data to control movement within the environment</li>
 				</CardProject>
 			</Section>
 			<Section id="education" title="Education">

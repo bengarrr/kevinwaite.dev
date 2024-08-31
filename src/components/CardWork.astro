@@ -23,7 +23,7 @@ const { title, location, date } = Astro.props;
 
 <style>
     .work-card {
-        @apply min-w-[450px];
+        @apply md:min-w-[450px] min-w-[100%];
     }
 
     .work-card--header {
@@ -31,14 +31,14 @@ const { title, location, date } = Astro.props;
     }
 
     .work-card--title {
-        @apply font-bold text-3xl mb-[10px];
+        @apply font-black text-3xl text-indigo-500 primary:text-indigo-500 secondary:text-mantis-500 tertiary:text-lavender-500;
     }
     .work-card--location {
-        @apply font-bold text-lg;
+        @apply font-bold text-lg text-indigo-700 primary:text-indigo-700 secondary:text-mantis-700 tertiary:text-lavender-700;
     }
 
     .work-card--date {
-        @apply text-xs;
+        @apply text-xs text-indigo-800 primary:text-indigo-800 secondary:text-mantis-800 tertiary:text-lavender-800;
     }
 
     .work-card--details {
