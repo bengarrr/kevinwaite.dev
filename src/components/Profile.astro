@@ -160,10 +160,12 @@ const { jdenticon } = Astro.props;
 <script>
     import Atropos from "atropos";
 
-    const atropos = Atropos({
-        el: '.atropos',
-		activeOffset: 50,
-		shadow: false,
-        highlight: false
-    })
+    if(window.innerWidth > 768) {
+        const atropos = Atropos({
+            el: '.atropos',
+            activeOffset: 50,
+            shadow: false,
+            highlight: false
+        })
+    }
 </script>
