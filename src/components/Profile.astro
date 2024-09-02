@@ -20,7 +20,7 @@ const { jdenticon } = Astro.props;
                             </div>
                         </div>
                         <div class="profile-header--content flex flex-col items-center">
-                            <div class="profile-name text-2xl font-black mt-[20px]" data-atropos-offset="3">Kevin Waite</div>
+                            <div class="profile-name text-2xl font-black md:mt-[20px]" data-atropos-offset="3">Kevin Waite</div>
                             <div class="profile-tag text-sm font-bold rounded-[50px] bg-zinc-800 px-[20px] py-[10px] mt-[10px]" data-atropos-offset="7">Software Engineer</div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@ const { jdenticon } = Astro.props;
     }
 
     .profile-picture:where(.collapsed *) {
-        @apply scale-75;
+        @apply scale-75 translate-x-[calc(-60px+45px)]
     }
 
     .profile-header {
@@ -116,6 +116,14 @@ const { jdenticon } = Astro.props;
     .profile-header--content:where(.collapsed *) {
         @apply flex-shrink-0;
     }
+
+    /* .profile-body:where(.collapsed *) {
+        @apply hidden;
+    }
+
+    .profile-footer:where(.collapsed *) {
+        @apply hidden;
+    } */
 
     .profile-contact {
         @apply flex flex-col justify-between grow-[.5];

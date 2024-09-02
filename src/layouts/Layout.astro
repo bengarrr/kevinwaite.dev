@@ -97,30 +97,72 @@ const { title } = Astro.props;
 </script>
 
 <script>
+	declare var layout: Function;
+
 	const profileEl = document.getElementById("profile") as HTMLElement;
 	let isAnimating = false;
 
 	document.addEventListener("scroll", event => {
+		if(window.innerWidth > 768) return;
 		const currScroll = window.scrollY;
 		const isCollapsed = profileEl.classList.contains("collapsed");
 
 		if(currScroll > 20 && !isCollapsed && !isAnimating) {
 			isAnimating = true;
 			profileEl.classList.add("collapsed");
+			layout();
 			
 			profileEl.addEventListener("transitionend", event => {
-				console.log("finished animating")
 				isAnimating = false;
 			})
 		}
 		if(currScroll === 0 && isCollapsed && !isAnimating) {
 			isAnimating = true;
 			profileEl.classList.remove("collapsed");
+			layout();
 
 			profileEl.addEventListener("transitionend", event => {
-				console.log("finished animating")
 				isAnimating = false;
 			})
 		}
 	})
+</script>
+
+<script>
+	import { gsap } from "gsap";
+
+	const nodes = document.querySelectorAll(".profile-header>div") as NodeListOf<HTMLElement>;
+	const total = nodes.length;
+	console.log(total)
+	let boxes = [];
+
+	for(let i = 0; i < total; i++) {
+		const node = nodes[i];
+
+		gsap.set(node, {x: 0});
+		boxes[i] = {
+			x: node.offsetLeft,
+			y: node.offsetTop,
+			node
+		}
+	}
+
+	console.log(boxes)
+
+	window["layout"] = function () {
+		for(let i = 0; i < total; i++) {
+			const box = boxes[i];
+
+			const lastX = box.x;
+			const lastY = box.y;
+
+			if(lastX === box.x && lastY === box.y)
+				continue;
+
+			const x = gsap.getProperty(box.node, 'x') + lastX - box.x;
+			const y = gsap.getProperty(box.node, 'y') + lastY - box.y;
+
+			gsap.fromTo(box.node, 0.5, {x, y}, {x: 0, y:0, ease: 'power1.inOut'});
+		}
+	}
 </script>
